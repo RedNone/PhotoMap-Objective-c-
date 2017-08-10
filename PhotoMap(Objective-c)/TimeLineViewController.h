@@ -1,5 +1,5 @@
 //
-//  SecondViewController.h
+//  TimeLineViewController.h
 //  PhotoMap(Objective-c)
 //
 //  Created by mac-228 on 09.08.17.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController
-
+@interface TimeLineViewController : UIViewController
 
 @end
-
