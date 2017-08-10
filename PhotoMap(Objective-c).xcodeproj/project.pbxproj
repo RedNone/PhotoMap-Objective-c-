@@ -7,31 +7,45 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		350B856A1F3B0E56000DA771 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 350B85691F3B0E56000DA771 /* GoogleService-Info.plist */; };
+		3524B1DF1F3C49060071CFE0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3524B1DE1F3C49060071CFE0 /* MapKit.framework */; };
+		353A8A321F3B340B00B5EB55 /* NVSingletonFireBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 353A8A311F3B340B00B5EB55 /* NVSingletonFireBaseManager.m */; };
+		353A8A361F3B556700B5EB55 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 353A8A351F3B556700B5EB55 /* RootViewController.m */; };
+		353A8A391F3B631E00B5EB55 /* MapUiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 353A8A381F3B631E00B5EB55 /* MapUiViewController.m */; };
+		353A8A3C1F3B633500B5EB55 /* TimeLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 353A8A3B1F3B633500B5EB55 /* TimeLineViewController.m */; };
 		3584E99A1F3B020E0027228D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3584E9991F3B020E0027228D /* main.m */; };
 		3584E99D1F3B020E0027228D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3584E99C1F3B020E0027228D /* AppDelegate.m */; };
-		3584E9A01F3B020E0027228D /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3584E99F1F3B020E0027228D /* FirstViewController.m */; };
-		3584E9A31F3B020E0027228D /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3584E9A21F3B020E0027228D /* SecondViewController.m */; };
 		3584E9A61F3B020E0027228D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3584E9A41F3B020E0027228D /* Main.storyboard */; };
 		3584E9A81F3B020E0027228D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3584E9A71F3B020E0027228D /* Assets.xcassets */; };
 		3584E9AB1F3B020E0027228D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3584E9A91F3B020E0027228D /* LaunchScreen.storyboard */; };
 		3584E9B41F3B063A0027228D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3584E9B31F3B063A0027228D /* LoginViewController.m */; };
+		E49627E13548C4E9B51814C6 /* libPods-PhotoMap(Objective-c).a in Frameworks */ = {isa = PBXBuildFile; fileRef = 82EB9217126E9C89B0DB64FF /* libPods-PhotoMap(Objective-c).a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0698B2B40B382AE85EF27E8F /* Pods-PhotoMap(Objective-c).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoMap(Objective-c).debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoMap(Objective-c)/Pods-PhotoMap(Objective-c).debug.xcconfig"; sourceTree = "<group>"; };
+		350B85691F3B0E56000DA771 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3524B1DE1F3C49060071CFE0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		353A8A301F3B340B00B5EB55 /* NVSingletonFireBaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVSingletonFireBaseManager.h; sourceTree = "<group>"; };
+		353A8A311F3B340B00B5EB55 /* NVSingletonFireBaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVSingletonFireBaseManager.m; sourceTree = "<group>"; };
+		353A8A341F3B556700B5EB55 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		353A8A351F3B556700B5EB55 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		353A8A371F3B631E00B5EB55 /* MapUiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapUiViewController.h; sourceTree = "<group>"; };
+		353A8A381F3B631E00B5EB55 /* MapUiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapUiViewController.m; sourceTree = "<group>"; };
+		353A8A3A1F3B633400B5EB55 /* TimeLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeLineViewController.h; sourceTree = "<group>"; };
+		353A8A3B1F3B633500B5EB55 /* TimeLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeLineViewController.m; sourceTree = "<group>"; };
 		3584E9951F3B020E0027228D /* PhotoMap(Objective-c).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PhotoMap(Objective-c).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3584E9991F3B020E0027228D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3584E99B1F3B020E0027228D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3584E99C1F3B020E0027228D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3584E99E1F3B020E0027228D /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		3584E99F1F3B020E0027228D /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		3584E9A11F3B020E0027228D /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		3584E9A21F3B020E0027228D /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		3584E9A51F3B020E0027228D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3584E9A71F3B020E0027228D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3584E9AA1F3B020E0027228D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3584E9AC1F3B020E0027228D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3584E9B21F3B063A0027228D /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		3584E9B31F3B063A0027228D /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		82EB9217126E9C89B0DB64FF /* libPods-PhotoMap(Objective-c).a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PhotoMap(Objective-c).a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A653F7C0B801D083475AF20F /* Pods-PhotoMap(Objective-c).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoMap(Objective-c).release.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoMap(Objective-c)/Pods-PhotoMap(Objective-c).release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,17 +53,54 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3524B1DF1F3C49060071CFE0 /* MapKit.framework in Frameworks */,
+				E49627E13548C4E9B51814C6 /* libPods-PhotoMap(Objective-c).a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A47651608C294107443AF45 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0698B2B40B382AE85EF27E8F /* Pods-PhotoMap(Objective-c).debug.xcconfig */,
+				A653F7C0B801D083475AF20F /* Pods-PhotoMap(Objective-c).release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		320448902C2424666E092561 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3524B1DE1F3C49060071CFE0 /* MapKit.framework */,
+				82EB9217126E9C89B0DB64FF /* libPods-PhotoMap(Objective-c).a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		353A8A331F3B365E00B5EB55 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				353A8A341F3B556700B5EB55 /* RootViewController.h */,
+				353A8A351F3B556700B5EB55 /* RootViewController.m */,
+				3584E9B21F3B063A0027228D /* LoginViewController.h */,
+				3584E9B31F3B063A0027228D /* LoginViewController.m */,
+				353A8A371F3B631E00B5EB55 /* MapUiViewController.h */,
+				353A8A381F3B631E00B5EB55 /* MapUiViewController.m */,
+				353A8A3A1F3B633400B5EB55 /* TimeLineViewController.h */,
+				353A8A3B1F3B633500B5EB55 /* TimeLineViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		3584E98C1F3B020E0027228D = {
 			isa = PBXGroup;
 			children = (
 				3584E9971F3B020E0027228D /* PhotoMap(Objective-c) */,
 				3584E9961F3B020E0027228D /* Products */,
+				2A47651608C294107443AF45 /* Pods */,
+				320448902C2424666E092561 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,14 +115,12 @@
 		3584E9971F3B020E0027228D /* PhotoMap(Objective-c) */ = {
 			isa = PBXGroup;
 			children = (
+				353A8A331F3B365E00B5EB55 /* ViewControllers */,
 				3584E99B1F3B020E0027228D /* AppDelegate.h */,
 				3584E99C1F3B020E0027228D /* AppDelegate.m */,
-				3584E9B21F3B063A0027228D /* LoginViewController.h */,
-				3584E9B31F3B063A0027228D /* LoginViewController.m */,
-				3584E99E1F3B020E0027228D /* FirstViewController.h */,
-				3584E99F1F3B020E0027228D /* FirstViewController.m */,
-				3584E9A11F3B020E0027228D /* SecondViewController.h */,
-				3584E9A21F3B020E0027228D /* SecondViewController.m */,
+				353A8A301F3B340B00B5EB55 /* NVSingletonFireBaseManager.h */,
+				353A8A311F3B340B00B5EB55 /* NVSingletonFireBaseManager.m */,
+				350B85691F3B0E56000DA771 /* GoogleService-Info.plist */,
 				3584E9A41F3B020E0027228D /* Main.storyboard */,
 				3584E9A71F3B020E0027228D /* Assets.xcassets */,
 				3584E9A91F3B020E0027228D /* LaunchScreen.storyboard */,
@@ -96,9 +145,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3584E9AF1F3B020E0027228D /* Build configuration list for PBXNativeTarget "PhotoMap(Objective-c)" */;
 			buildPhases = (
+				3DC472CD81DFD9D91269EE46 /* [CP] Check Pods Manifest.lock */,
 				3584E9911F3B020E0027228D /* Sources */,
 				3584E9921F3B020E0027228D /* Frameworks */,
 				3584E9931F3B020E0027228D /* Resources */,
+				E3CB6E0D24D0BC87F3E7E593 /* [CP] Embed Pods Frameworks */,
+				101E972950CCE3CBB3A43CFE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -121,6 +173,14 @@
 					3584E9941F3B020E0027228D = {
 						CreatedOnToolsVersion = 8.3.3;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -148,6 +208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3584E9AB1F3B020E0027228D /* LaunchScreen.storyboard in Resources */,
+				350B856A1F3B0E56000DA771 /* GoogleService-Info.plist in Resources */,
 				3584E9A81F3B020E0027228D /* Assets.xcassets in Resources */,
 				3584E9A61F3B020E0027228D /* Main.storyboard in Resources */,
 			);
@@ -155,15 +216,68 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		101E972950CCE3CBB3A43CFE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PhotoMap(Objective-c)/Pods-PhotoMap(Objective-c)-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3DC472CD81DFD9D91269EE46 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PhotoMap(Objective-c)-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E3CB6E0D24D0BC87F3E7E593 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PhotoMap(Objective-c)/Pods-PhotoMap(Objective-c)-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3584E9911F3B020E0027228D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3584E9A31F3B020E0027228D /* SecondViewController.m in Sources */,
+				353A8A361F3B556700B5EB55 /* RootViewController.m in Sources */,
 				3584E99D1F3B020E0027228D /* AppDelegate.m in Sources */,
-				3584E9A01F3B020E0027228D /* FirstViewController.m in Sources */,
+				353A8A391F3B631E00B5EB55 /* MapUiViewController.m in Sources */,
 				3584E99A1F3B020E0027228D /* main.m in Sources */,
+				353A8A321F3B340B00B5EB55 /* NVSingletonFireBaseManager.m in Sources */,
+				353A8A3C1F3B633500B5EB55 /* TimeLineViewController.m in Sources */,
 				3584E9B41F3B063A0027228D /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,6 +396,7 @@
 		};
 		3584E9B01F3B020E0027228D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0698B2B40B382AE85EF27E8F /* Pods-PhotoMap(Objective-c).debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "PhotoMap(Objective-c)/Info.plist";
@@ -294,6 +409,7 @@
 		};
 		3584E9B11F3B020E0027228D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A653F7C0B801D083475AF20F /* Pods-PhotoMap(Objective-c).release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "PhotoMap(Objective-c)/Info.plist";
@@ -323,6 +439,7 @@
 				3584E9B11F3B020E0027228D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

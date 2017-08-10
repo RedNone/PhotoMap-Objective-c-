@@ -1,5 +1,5 @@
 //
-//  FirstViewController.h
+//  RootViewController.h
 //  PhotoMap(Objective-c)
 //
 //  Created by mac-228 on 09.08.17.
@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UIViewController
+
+@interface RootViewController : UIViewController
+
 
 
 @end
-
