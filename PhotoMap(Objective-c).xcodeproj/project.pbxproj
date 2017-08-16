@@ -13,12 +13,23 @@
 		353A8A361F3B556700B5EB55 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 353A8A351F3B556700B5EB55 /* RootViewController.m */; };
 		353A8A391F3B631E00B5EB55 /* MapUiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 353A8A381F3B631E00B5EB55 /* MapUiViewController.m */; };
 		353A8A3C1F3B633500B5EB55 /* TimeLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 353A8A3B1F3B633500B5EB55 /* TimeLineViewController.m */; };
+		354BA7C91F3C7C44005D7FB1 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 354BA7C81F3C7C44005D7FB1 /* MoreViewController.m */; };
+		354BA7CE1F3C982C005D7FB1 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 354BA7CD1F3C982C005D7FB1 /* BaseViewController.m */; };
+		354FB8711F4191C700C438E1 /* NVPhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 354FB8701F4191C700C438E1 /* NVPhotoModel.m */; };
+		35710F171F41CCCE00DA8E22 /* FullPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35710F161F41CCCE00DA8E22 /* FullPhotoViewController.m */; };
+		35710F1A1F41F29600DA8E22 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35710F191F41F29600DA8E22 /* SettingsViewController.m */; };
 		3584E99A1F3B020E0027228D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3584E9991F3B020E0027228D /* main.m */; };
 		3584E99D1F3B020E0027228D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3584E99C1F3B020E0027228D /* AppDelegate.m */; };
 		3584E9A61F3B020E0027228D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3584E9A41F3B020E0027228D /* Main.storyboard */; };
 		3584E9A81F3B020E0027228D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3584E9A71F3B020E0027228D /* Assets.xcassets */; };
 		3584E9AB1F3B020E0027228D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3584E9A91F3B020E0027228D /* LaunchScreen.storyboard */; };
 		3584E9B41F3B063A0027228D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3584E9B31F3B063A0027228D /* LoginViewController.m */; };
+		35C2E2DD1F3DDCB20046A143 /* MapPhotoPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35C2E2DC1F3DDCB20046A143 /* MapPhotoPopup.xib */; };
+		35C2E2E11F3DE0E00046A143 /* MapPhotoPopUp.m in Sources */ = {isa = PBXBuildFile; fileRef = 35C2E2E01F3DE0E00046A143 /* MapPhotoPopUp.m */; };
+		35C633011F4491A0009981F8 /* NVConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 35C633001F4491A0009981F8 /* NVConst.m */; };
+		35F54DF81F42FE9600689135 /* NVPhotoSendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F54DF71F42FE9600689135 /* NVPhotoSendModel.m */; };
+		35F54DFC1F433F4900689135 /* SettingsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F54DFB1F433F4900689135 /* SettingsTableViewCell.m */; };
+		35F54DFF1F4348AD00689135 /* NVSettingsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F54DFE1F4348AD00689135 /* NVSettingsModel.m */; };
 		E49627E13548C4E9B51814C6 /* libPods-PhotoMap(Objective-c).a in Frameworks */ = {isa = PBXBuildFile; fileRef = 82EB9217126E9C89B0DB64FF /* libPods-PhotoMap(Objective-c).a */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +45,16 @@
 		353A8A381F3B631E00B5EB55 /* MapUiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapUiViewController.m; sourceTree = "<group>"; };
 		353A8A3A1F3B633400B5EB55 /* TimeLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeLineViewController.h; sourceTree = "<group>"; };
 		353A8A3B1F3B633500B5EB55 /* TimeLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeLineViewController.m; sourceTree = "<group>"; };
+		354BA7C71F3C7C44005D7FB1 /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
+		354BA7C81F3C7C44005D7FB1 /* MoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
+		354BA7CC1F3C982C005D7FB1 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		354BA7CD1F3C982C005D7FB1 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		354FB86F1F4191C700C438E1 /* NVPhotoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVPhotoModel.h; sourceTree = "<group>"; };
+		354FB8701F4191C700C438E1 /* NVPhotoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVPhotoModel.m; sourceTree = "<group>"; };
+		35710F151F41CCCE00DA8E22 /* FullPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullPhotoViewController.h; sourceTree = "<group>"; };
+		35710F161F41CCCE00DA8E22 /* FullPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullPhotoViewController.m; sourceTree = "<group>"; };
+		35710F181F41F29600DA8E22 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		35710F191F41F29600DA8E22 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		3584E9951F3B020E0027228D /* PhotoMap(Objective-c).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PhotoMap(Objective-c).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3584E9991F3B020E0027228D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3584E99B1F3B020E0027228D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -44,6 +65,17 @@
 		3584E9AC1F3B020E0027228D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3584E9B21F3B063A0027228D /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		3584E9B31F3B063A0027228D /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		35C2E2DC1F3DDCB20046A143 /* MapPhotoPopup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapPhotoPopup.xib; sourceTree = "<group>"; };
+		35C2E2DF1F3DE0E00046A143 /* MapPhotoPopUp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapPhotoPopUp.h; sourceTree = "<group>"; };
+		35C2E2E01F3DE0E00046A143 /* MapPhotoPopUp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapPhotoPopUp.m; sourceTree = "<group>"; };
+		35C632FF1F4491A0009981F8 /* NVConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVConst.h; sourceTree = "<group>"; };
+		35C633001F4491A0009981F8 /* NVConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVConst.m; sourceTree = "<group>"; };
+		35F54DF61F42FE9600689135 /* NVPhotoSendModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVPhotoSendModel.h; sourceTree = "<group>"; };
+		35F54DF71F42FE9600689135 /* NVPhotoSendModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVPhotoSendModel.m; sourceTree = "<group>"; };
+		35F54DFA1F433F4900689135 /* SettingsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewCell.h; sourceTree = "<group>"; };
+		35F54DFB1F433F4900689135 /* SettingsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewCell.m; sourceTree = "<group>"; };
+		35F54DFD1F4348AD00689135 /* NVSettingsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVSettingsModel.h; sourceTree = "<group>"; };
+		35F54DFE1F4348AD00689135 /* NVSettingsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVSettingsModel.m; sourceTree = "<group>"; };
 		82EB9217126E9C89B0DB64FF /* libPods-PhotoMap(Objective-c).a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PhotoMap(Objective-c).a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A653F7C0B801D083475AF20F /* Pods-PhotoMap(Objective-c).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoMap(Objective-c).release.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoMap(Objective-c)/Pods-PhotoMap(Objective-c).release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,6 +114,8 @@
 		353A8A331F3B365E00B5EB55 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				354BA7CC1F3C982C005D7FB1 /* BaseViewController.h */,
+				354BA7CD1F3C982C005D7FB1 /* BaseViewController.m */,
 				353A8A341F3B556700B5EB55 /* RootViewController.h */,
 				353A8A351F3B556700B5EB55 /* RootViewController.m */,
 				3584E9B21F3B063A0027228D /* LoginViewController.h */,
@@ -90,8 +124,27 @@
 				353A8A381F3B631E00B5EB55 /* MapUiViewController.m */,
 				353A8A3A1F3B633400B5EB55 /* TimeLineViewController.h */,
 				353A8A3B1F3B633500B5EB55 /* TimeLineViewController.m */,
+				354BA7C71F3C7C44005D7FB1 /* MoreViewController.h */,
+				354BA7C81F3C7C44005D7FB1 /* MoreViewController.m */,
+				35710F151F41CCCE00DA8E22 /* FullPhotoViewController.h */,
+				35710F161F41CCCE00DA8E22 /* FullPhotoViewController.m */,
+				35710F181F41F29600DA8E22 /* SettingsViewController.h */,
+				35710F191F41F29600DA8E22 /* SettingsViewController.m */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		354FB86E1F4191A700C438E1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				354FB86F1F4191C700C438E1 /* NVPhotoModel.h */,
+				354FB8701F4191C700C438E1 /* NVPhotoModel.m */,
+				35F54DF61F42FE9600689135 /* NVPhotoSendModel.h */,
+				35F54DF71F42FE9600689135 /* NVPhotoSendModel.m */,
+				35F54DFD1F4348AD00689135 /* NVSettingsModel.h */,
+				35F54DFE1F4348AD00689135 /* NVSettingsModel.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		3584E98C1F3B020E0027228D = {
@@ -115,16 +168,17 @@
 		3584E9971F3B020E0027228D /* PhotoMap(Objective-c) */ = {
 			isa = PBXGroup;
 			children = (
+				35C632FE1F44918C009981F8 /* Const */,
+				35F54DF91F433F1900689135 /* CustomTableView */,
+				354FB86E1F4191A700C438E1 /* Models */,
+				35C2E2DE1F3DE0B70046A143 /* CustomView */,
 				353A8A331F3B365E00B5EB55 /* ViewControllers */,
 				3584E99B1F3B020E0027228D /* AppDelegate.h */,
 				3584E99C1F3B020E0027228D /* AppDelegate.m */,
 				353A8A301F3B340B00B5EB55 /* NVSingletonFireBaseManager.h */,
 				353A8A311F3B340B00B5EB55 /* NVSingletonFireBaseManager.m */,
-				350B85691F3B0E56000DA771 /* GoogleService-Info.plist */,
 				3584E9A41F3B020E0027228D /* Main.storyboard */,
 				3584E9A71F3B020E0027228D /* Assets.xcassets */,
-				3584E9A91F3B020E0027228D /* LaunchScreen.storyboard */,
-				3584E9AC1F3B020E0027228D /* Info.plist */,
 				3584E9981F3B020E0027228D /* Supporting Files */,
 			);
 			path = "PhotoMap(Objective-c)";
@@ -133,9 +187,40 @@
 		3584E9981F3B020E0027228D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				350B85691F3B0E56000DA771 /* GoogleService-Info.plist */,
+				3584E9A91F3B020E0027228D /* LaunchScreen.storyboard */,
+				3584E9AC1F3B020E0027228D /* Info.plist */,
 				3584E9991F3B020E0027228D /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		35C2E2DE1F3DE0B70046A143 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				35C2E2DC1F3DDCB20046A143 /* MapPhotoPopup.xib */,
+				35C2E2DF1F3DE0E00046A143 /* MapPhotoPopUp.h */,
+				35C2E2E01F3DE0E00046A143 /* MapPhotoPopUp.m */,
+			);
+			name = CustomView;
+			sourceTree = "<group>";
+		};
+		35C632FE1F44918C009981F8 /* Const */ = {
+			isa = PBXGroup;
+			children = (
+				35C632FF1F4491A0009981F8 /* NVConst.h */,
+				35C633001F4491A0009981F8 /* NVConst.m */,
+			);
+			name = Const;
+			sourceTree = "<group>";
+		};
+		35F54DF91F433F1900689135 /* CustomTableView */ = {
+			isa = PBXGroup;
+			children = (
+				35F54DFA1F433F4900689135 /* SettingsTableViewCell.h */,
+				35F54DFB1F433F4900689135 /* SettingsTableViewCell.m */,
+			);
+			name = CustomTableView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,6 +294,7 @@
 			files = (
 				3584E9AB1F3B020E0027228D /* LaunchScreen.storyboard in Resources */,
 				350B856A1F3B0E56000DA771 /* GoogleService-Info.plist in Resources */,
+				35C2E2DD1F3DDCB20046A143 /* MapPhotoPopup.xib in Resources */,
 				3584E9A81F3B020E0027228D /* Assets.xcassets in Resources */,
 				3584E9A61F3B020E0027228D /* Main.storyboard in Resources */,
 			);
@@ -272,13 +358,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35710F171F41CCCE00DA8E22 /* FullPhotoViewController.m in Sources */,
+				354FB8711F4191C700C438E1 /* NVPhotoModel.m in Sources */,
+				35F54DFF1F4348AD00689135 /* NVSettingsModel.m in Sources */,
+				35C2E2E11F3DE0E00046A143 /* MapPhotoPopUp.m in Sources */,
 				353A8A361F3B556700B5EB55 /* RootViewController.m in Sources */,
+				354BA7CE1F3C982C005D7FB1 /* BaseViewController.m in Sources */,
+				354BA7C91F3C7C44005D7FB1 /* MoreViewController.m in Sources */,
 				3584E99D1F3B020E0027228D /* AppDelegate.m in Sources */,
 				353A8A391F3B631E00B5EB55 /* MapUiViewController.m in Sources */,
 				3584E99A1F3B020E0027228D /* main.m in Sources */,
 				353A8A321F3B340B00B5EB55 /* NVSingletonFireBaseManager.m in Sources */,
 				353A8A3C1F3B633500B5EB55 /* TimeLineViewController.m in Sources */,
 				3584E9B41F3B063A0027228D /* LoginViewController.m in Sources */,
+				35F54DF81F42FE9600689135 /* NVPhotoSendModel.m in Sources */,
+				35C633011F4491A0009981F8 /* NVConst.m in Sources */,
+				35710F1A1F41F29600DA8E22 /* SettingsViewController.m in Sources */,
+				35F54DFC1F433F4900689135 /* SettingsTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

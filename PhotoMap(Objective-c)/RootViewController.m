@@ -7,6 +7,7 @@
 //
 
 #import "RootViewController.h"
+#import "NVSingletonFireBaseManager.h"
 @import FirebaseAuth;
 
 @implementation RootViewController
@@ -16,6 +17,7 @@
     if([[FIRAuth auth] currentUser] == nil){
         [self performSegueWithIdentifier:@"segueLoginScreen" sender:self];
     } else {
+        [[NVSingletonFireBaseManager sharedManager] downloadData];
         [self performSegueWithIdentifier:@"segueTabBarScreen" sender:self];
     }
 }

@@ -7,9 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NVPhotoModel.h"
 
 @interface NVSingletonFireBaseManager : NSObject
 
-+ (id)sharedManager;
+@property(strong, nonatomic) NSMutableArray *userData;
 
+
++ (NVSingletonFireBaseManager*)sharedManager;
+-(void) uploadData:(NVPhotoModel*)model;
+-(void) downloadData;
 @end

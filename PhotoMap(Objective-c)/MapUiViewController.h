@@ -9,11 +9,17 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "BaseViewController.h"
+#import <Photos/Photos.h>
 
-@interface MapUiViewController : UIViewController
+@interface MapUiViewController : BaseViewController 
 
-@property (strong,nonatomic) IBOutlet MKMapView* mapView;
-@property (strong,nonatomic) CLLocationManager* locationManager;
-@property (strong,nonatomic) CLLocation* location;
+@property(strong,nonatomic) IBOutlet MKMapView* mapView;
+@property(strong,nonatomic) CLLocationManager* locationManager;
+@property(nonatomic,strong) CLLocation *location;
+
+@property (weak, nonatomic) IBOutlet UIButton *mapModeButton;
+- (IBAction)touchOnMapModeButton:(UIButton *)sender;
+- (IBAction)touchOnNewPhotoButton:(UIButton *)sender;
 
 @end
