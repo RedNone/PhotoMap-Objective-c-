@@ -43,10 +43,13 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-<string>The spirit of stack overflow is coders helping coders</string>
-
-<key>NSLocationAlwaysUsageDescription</key>
-<string>Need you permission for correct map work</string>
+	<string>The spirit of stack overflow is coders helping coders</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Need you permission for correct map work</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Need you permission to pick photo from the library</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Need you permission to pick photo from the camera</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
