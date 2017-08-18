@@ -16,7 +16,7 @@
 
 #pragma mark - CallAlertController
 
--(void) callAlertControllerWithTitle:(NSString*) title andWithMessage:(NSString*) message {
+-(void)callAlertControllerWithTitle:(NSString *)title andWithMessage:(NSString *)message {
     
     UIAlertController* alert=   [UIAlertController
                                  alertControllerWithTitle:title

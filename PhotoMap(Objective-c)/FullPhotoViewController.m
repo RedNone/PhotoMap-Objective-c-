@@ -54,13 +54,8 @@
 }
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark - Actions
--(void) tapToImageView:(UIGestureRecognizer*) gester{
+-(void)tapToImageView:(UIGestureRecognizer *)gester{
     if(self.navigationController.navigationBar.isHidden){
         [self.navigationController.navigationBar setHidden:NO];
         [self.footerView setHidden:NO];      
@@ -70,7 +65,7 @@
     }
 }
 
--(void) doubleTapToImageView:(UIGestureRecognizer*) gester{
+-(void)doubleTapToImageView:(UIGestureRecognizer *)gester{
     if(self.scrollView.zoomScale > self.scrollView.minimumZoomScale)
         [self.scrollView setZoomScale:self.scrollView.minimumZoomScale animated:YES];
     else
@@ -79,7 +74,7 @@
 
 #pragma mark - ScrollView Delegate
 
-- (nullable UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{
     return self.imageView;
 }
 

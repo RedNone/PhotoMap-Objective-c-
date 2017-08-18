@@ -1,16 +1,10 @@
-//
-//  NVSingletonFireBaseManager.m
-//  PhotoMap(Objective-c)
-//
-//  Created by mac-228 on 09.08.17.
-//  Copyright © 2017 mac-228. All rights reserved.
-//
-
 #import "NVSingletonFireBaseManager.h"
 #import "NVPhotoSendModel.h"
 #import "NVConst.h"
+#import "UIImage+NVConvertImageExtension.h"
 @import FirebaseAuth;
 @import FirebaseDatabase;
+
 
 @implementation NVSingletonFireBaseManager
 
@@ -27,14 +21,13 @@
 - (id)init {
     if (self = [super init]) {
         
-    }
-    
+    }    
     return self;
 }
 
 #pragma mark - FireBase Data
 
--(void) uploadData:(NVPhotoModel*)model{
+-(void)uploadData:(NVPhotoModel *)model{
     FIRDatabaseReference *fireBaseInstance = [[FIRDatabase database] referenceWithPath:[NSString stringWithFormat:@"photos/%@",[[[FIRAuth auth] currentUser] uid]]];
     FIRDatabaseQuery *lastquery = [fireBaseInstance queryOrderedByKey];
     
@@ -43,8 +36,8 @@
     newModel.date = model.date;
     newModel.coordinates = model.coordinates;
     newModel.text = model.text;
-    UIImage *newImage = [self imageWithImage:model.photo scaledToSize:CGSizeMake(100, 100)];
-    newModel.photo = [self encodeToBase64String:newImage];
+    UIImage *newImage = [model.photo scaledToSize:CGSizeMake(100, 100)];
+    newModel.photo = [newImage encodeToBase64String];
     newModel.type = model.type;
 
     
@@ -73,7 +66,7 @@
     }];
 }
      
--(void) downloadData {
+-(void)downloadData {
     FIRDatabaseReference *fireBaseInstance = [[FIRDatabase database] referenceWithPath:[NSString stringWithFormat:@"photos/%@",[[[FIRAuth auth] currentUser] uid]]];
     FIRDatabaseQuery *lastquery = [fireBaseInstance queryOrderedByKey];
     
@@ -100,34 +93,14 @@
             [self convertComeData:comeData];
         }
     }];
-    
-}
-
-
-
-#pragma mark - Convert Image
-
-- (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
-    UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
-    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return newImage;
-}
-
-- (NSString *)encodeToBase64String:(UIImage *)image {
-    return [UIImagePNGRepresentation(image) base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
-}
-
-- (UIImage *)decodeBase64ToImage:(NSString *)strEncodeData {
-    NSData *data = [[NSData alloc]initWithBase64EncodedString:strEncodeData options:NSDataBase64DecodingIgnoreUnknownCharacters];
-    return [UIImage imageWithData:data];
 }
 
 #pragma mark - Convert Come Data
 
--(void) convertComeData:(NSMutableArray*) array{
+-(void)convertComeData:(NSMutableArray *)array{
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        self.userData = [[NSMutableArray alloc] initWithCapacity:array.count];
         
         for(NVPhotoSendModel *model in array){
             NVPhotoModel *newModel = [NVPhotoModel new];
@@ -137,14 +110,14 @@
             newModel.text = model.text;
             newModel.type = model.type;
             
-            UIImage *image = [self decodeBase64ToImage:model.photo];
+            UIImage *image = [UIImage decodeBase64ToImage:model.photo];
             
             NSData *imageData = UIImagePNGRepresentation(image);
             
             NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
             NSString *documentsDirectory = [paths objectAtIndex:0];
             
-            NSString *imagePath =[documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png",@"cached"]];
+            NSString *imagePath =[documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@%d.png",@"cached",newModel.photoId]];
             
             if (![imageData writeToFile:imagePath atomically:NO]){
                 NSLog(@"Failed to cache image data to disk");

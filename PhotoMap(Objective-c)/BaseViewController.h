@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface BaseViewController : UIViewController
-#pragma mark - CallAlertController
 
--(void) callAlertControllerWithTitle:(NSString*) title andWithMessage:(NSString*) message;
+
+-(void)callAlertControllerWithTitle:(NSString *)title andWithMessage:(NSString *)message;
 
 @end

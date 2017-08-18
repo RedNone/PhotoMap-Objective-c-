@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		350B856A1F3B0E56000DA771 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 350B85691F3B0E56000DA771 /* GoogleService-Info.plist */; };
 		3524B1DF1F3C49060071CFE0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3524B1DE1F3C49060071CFE0 /* MapKit.framework */; };
+		353377A21F45BA2600A36FB4 /* NVMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 353377A11F45BA2600A36FB4 /* NVMapAnnotation.m */; };
+		353377A61F45DA8600A36FB4 /* UIImage+NVConvertImageExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 353377A51F45DA8600A36FB4 /* UIImage+NVConvertImageExtension.m */; };
 		353A8A321F3B340B00B5EB55 /* NVSingletonFireBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 353A8A311F3B340B00B5EB55 /* NVSingletonFireBaseManager.m */; };
 		353A8A361F3B556700B5EB55 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 353A8A351F3B556700B5EB55 /* RootViewController.m */; };
 		353A8A391F3B631E00B5EB55 /* MapUiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 353A8A381F3B631E00B5EB55 /* MapUiViewController.m */; };
@@ -27,6 +29,10 @@
 		35C2E2DD1F3DDCB20046A143 /* MapPhotoPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35C2E2DC1F3DDCB20046A143 /* MapPhotoPopup.xib */; };
 		35C2E2E11F3DE0E00046A143 /* MapPhotoPopUp.m in Sources */ = {isa = PBXBuildFile; fileRef = 35C2E2E01F3DE0E00046A143 /* MapPhotoPopUp.m */; };
 		35C633011F4491A0009981F8 /* NVConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 35C633001F4491A0009981F8 /* NVConst.m */; };
+		35E5C7311F46DBE000C4167D /* CustomCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35E5C7301F46DBE000C4167D /* CustomCalloutView.xib */; };
+		35E5C7341F46DCB500C4167D /* NVCustomCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E5C7331F46DCB500C4167D /* NVCustomCalloutView.m */; };
+		35E5C7371F46DEC800C4167D /* UIView+NVShadowExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E5C7361F46DEC800C4167D /* UIView+NVShadowExtension.m */; };
+		35E5C73A1F46FF4B00C4167D /* NVCustomAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E5C7391F46FF4B00C4167D /* NVCustomAnnotationView.m */; };
 		35F54DF81F42FE9600689135 /* NVPhotoSendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F54DF71F42FE9600689135 /* NVPhotoSendModel.m */; };
 		35F54DFC1F433F4900689135 /* SettingsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F54DFB1F433F4900689135 /* SettingsTableViewCell.m */; };
 		35F54DFF1F4348AD00689135 /* NVSettingsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F54DFE1F4348AD00689135 /* NVSettingsModel.m */; };
@@ -37,6 +43,10 @@
 		0698B2B40B382AE85EF27E8F /* Pods-PhotoMap(Objective-c).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoMap(Objective-c).debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoMap(Objective-c)/Pods-PhotoMap(Objective-c).debug.xcconfig"; sourceTree = "<group>"; };
 		350B85691F3B0E56000DA771 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3524B1DE1F3C49060071CFE0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		353377A01F45BA2600A36FB4 /* NVMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVMapAnnotation.h; sourceTree = "<group>"; };
+		353377A11F45BA2600A36FB4 /* NVMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVMapAnnotation.m; sourceTree = "<group>"; };
+		353377A41F45DA8600A36FB4 /* UIImage+NVConvertImageExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+NVConvertImageExtension.h"; sourceTree = "<group>"; };
+		353377A51F45DA8600A36FB4 /* UIImage+NVConvertImageExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+NVConvertImageExtension.m"; sourceTree = "<group>"; };
 		353A8A301F3B340B00B5EB55 /* NVSingletonFireBaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVSingletonFireBaseManager.h; sourceTree = "<group>"; };
 		353A8A311F3B340B00B5EB55 /* NVSingletonFireBaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVSingletonFireBaseManager.m; sourceTree = "<group>"; };
 		353A8A341F3B556700B5EB55 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
@@ -70,6 +80,13 @@
 		35C2E2E01F3DE0E00046A143 /* MapPhotoPopUp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapPhotoPopUp.m; sourceTree = "<group>"; };
 		35C632FF1F4491A0009981F8 /* NVConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVConst.h; sourceTree = "<group>"; };
 		35C633001F4491A0009981F8 /* NVConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVConst.m; sourceTree = "<group>"; };
+		35E5C7301F46DBE000C4167D /* CustomCalloutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCalloutView.xib; sourceTree = "<group>"; };
+		35E5C7321F46DCB500C4167D /* NVCustomCalloutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVCustomCalloutView.h; sourceTree = "<group>"; };
+		35E5C7331F46DCB500C4167D /* NVCustomCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVCustomCalloutView.m; sourceTree = "<group>"; };
+		35E5C7351F46DEC800C4167D /* UIView+NVShadowExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+NVShadowExtension.h"; sourceTree = "<group>"; };
+		35E5C7361F46DEC800C4167D /* UIView+NVShadowExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+NVShadowExtension.m"; sourceTree = "<group>"; };
+		35E5C7381F46FF4B00C4167D /* NVCustomAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVCustomAnnotationView.h; sourceTree = "<group>"; };
+		35E5C7391F46FF4B00C4167D /* NVCustomAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVCustomAnnotationView.m; sourceTree = "<group>"; };
 		35F54DF61F42FE9600689135 /* NVPhotoSendModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVPhotoSendModel.h; sourceTree = "<group>"; };
 		35F54DF71F42FE9600689135 /* NVPhotoSendModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVPhotoSendModel.m; sourceTree = "<group>"; };
 		35F54DFA1F433F4900689135 /* SettingsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewCell.h; sourceTree = "<group>"; };
@@ -109,6 +126,17 @@
 				82EB9217126E9C89B0DB64FF /* libPods-PhotoMap(Objective-c).a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		353377A31F45DA6300A36FB4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				353377A41F45DA8600A36FB4 /* UIImage+NVConvertImageExtension.h */,
+				353377A51F45DA8600A36FB4 /* UIImage+NVConvertImageExtension.m */,
+				35E5C7351F46DEC800C4167D /* UIView+NVShadowExtension.h */,
+				35E5C7361F46DEC800C4167D /* UIView+NVShadowExtension.m */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		353A8A331F3B365E00B5EB55 /* ViewControllers */ = {
@@ -168,6 +196,7 @@
 		3584E9971F3B020E0027228D /* PhotoMap(Objective-c) */ = {
 			isa = PBXGroup;
 			children = (
+				353377A31F45DA6300A36FB4 /* Extensions */,
 				35C632FE1F44918C009981F8 /* Const */,
 				35F54DF91F433F1900689135 /* CustomTableView */,
 				354FB86E1F4191A700C438E1 /* Models */,
@@ -201,6 +230,13 @@
 				35C2E2DC1F3DDCB20046A143 /* MapPhotoPopup.xib */,
 				35C2E2DF1F3DE0E00046A143 /* MapPhotoPopUp.h */,
 				35C2E2E01F3DE0E00046A143 /* MapPhotoPopUp.m */,
+				353377A01F45BA2600A36FB4 /* NVMapAnnotation.h */,
+				353377A11F45BA2600A36FB4 /* NVMapAnnotation.m */,
+				35E5C7301F46DBE000C4167D /* CustomCalloutView.xib */,
+				35E5C7321F46DCB500C4167D /* NVCustomCalloutView.h */,
+				35E5C7331F46DCB500C4167D /* NVCustomCalloutView.m */,
+				35E5C7381F46FF4B00C4167D /* NVCustomAnnotationView.h */,
+				35E5C7391F46FF4B00C4167D /* NVCustomAnnotationView.m */,
 			);
 			name = CustomView;
 			sourceTree = "<group>";
@@ -296,6 +332,7 @@
 				350B856A1F3B0E56000DA771 /* GoogleService-Info.plist in Resources */,
 				35C2E2DD1F3DDCB20046A143 /* MapPhotoPopup.xib in Resources */,
 				3584E9A81F3B020E0027228D /* Assets.xcassets in Resources */,
+				35E5C7311F46DBE000C4167D /* CustomCalloutView.xib in Resources */,
 				3584E9A61F3B020E0027228D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,7 +395,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35E5C7371F46DEC800C4167D /* UIView+NVShadowExtension.m in Sources */,
 				35710F171F41CCCE00DA8E22 /* FullPhotoViewController.m in Sources */,
+				353377A21F45BA2600A36FB4 /* NVMapAnnotation.m in Sources */,
 				354FB8711F4191C700C438E1 /* NVPhotoModel.m in Sources */,
 				35F54DFF1F4348AD00689135 /* NVSettingsModel.m in Sources */,
 				35C2E2E11F3DE0E00046A143 /* MapPhotoPopUp.m in Sources */,
@@ -368,12 +407,15 @@
 				3584E99D1F3B020E0027228D /* AppDelegate.m in Sources */,
 				353A8A391F3B631E00B5EB55 /* MapUiViewController.m in Sources */,
 				3584E99A1F3B020E0027228D /* main.m in Sources */,
+				35E5C73A1F46FF4B00C4167D /* NVCustomAnnotationView.m in Sources */,
 				353A8A321F3B340B00B5EB55 /* NVSingletonFireBaseManager.m in Sources */,
+				353377A61F45DA8600A36FB4 /* UIImage+NVConvertImageExtension.m in Sources */,
 				353A8A3C1F3B633500B5EB55 /* TimeLineViewController.m in Sources */,
 				3584E9B41F3B063A0027228D /* LoginViewController.m in Sources */,
 				35F54DF81F42FE9600689135 /* NVPhotoSendModel.m in Sources */,
 				35C633011F4491A0009981F8 /* NVConst.m in Sources */,
 				35710F1A1F41F29600DA8E22 /* SettingsViewController.m in Sources */,
+				35E5C7341F46DCB500C4167D /* NVCustomCalloutView.m in Sources */,
 				35F54DFC1F433F4900689135 /* SettingsTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

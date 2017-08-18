@@ -11,11 +11,13 @@
 #import "NVSingletonFireBaseManager.h"
 #import "NVConst.h"
 #import "UIKit/UIKit.h"
+#import "UIView+NVShadowExtension.h"
 
 @interface MapPhotoPopUp()
 @property(strong,nonatomic) NVPhotoModel *model;
 @property(strong,nonatomic) MapUiViewController *controller;
 @end
+
 @implementation MapPhotoPopUp
 
 
@@ -29,16 +31,16 @@
     return self;
 }
 
--(void) initViewItems {
+-(void)initViewItems {
     [[NSBundle mainBundle] loadNibNamed:@"MapPhotoPopup" owner:self options:nil];
     [self addSubview:self.contentView];
     self.contentView.frame = self.bounds;
     
     
-    [self makeShadowForView:self.contentView];
+    [self.contentView makeShadowWithSize:CGSizeMake(3.0f, 3.0f) andWithShadowOpacity:0.2f];
     self.contentView.layer.cornerRadius = 5;
     
-    [self makeShadowForView:self.imageView];
+    [self.imageView makeShadowWithSize:CGSizeMake(3.0f, 3.0f) andWithShadowOpacity:0.2f];
     
     [self.imageView setImage:self.model.photo];
     [self.timeLabel setText:self.model.date];
@@ -53,7 +55,7 @@
     [self.imageView addGestureRecognizer:imageGester];
 }
 
--(void) makeShadowForView:(UIView *)someView {
+-(void)makeShadowForView:(UIView *)someView {
     
     UIBezierPath *shadowPath = [UIBezierPath bezierPathWithRect:someView.bounds];
     someView.layer.masksToBounds = NO;
@@ -66,7 +68,7 @@
 
 #pragma mark - Actions
 
--(void) imageViewAction: (UIGestureRecognizer*) gester{
+-(void)imageViewAction:(UIGestureRecognizer *)gester{
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     FullPhotoViewController *myController = [storyBoard instantiateViewControllerWithIdentifier:@"FullPhotoScreen"];
     self.model.text = self.descriptionTextField.text;    
@@ -75,7 +77,7 @@
 
 }
 
--(void) typeOfPhotoLabelAction:(UIGestureRecognizer*) gester{
+-(void)typeOfPhotoLabelAction:(UIGestureRecognizer *)gester{
     if(gester.state == UIGestureRecognizerStateBegan){
         [self callAlertControllerForLabel];
     }
@@ -93,7 +95,7 @@
 
 #pragma mark - AlertController as Context Menu
 
--(void) callAlertControllerForLabel{
+-(void)callAlertControllerForLabel{
     
     UIAlertController* alert=   [UIAlertController
                                  alertControllerWithTitle:@"Select type of image"

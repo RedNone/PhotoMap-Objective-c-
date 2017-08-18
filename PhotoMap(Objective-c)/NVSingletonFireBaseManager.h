@@ -13,8 +13,8 @@
 
 @property(strong, nonatomic) NSMutableArray *userData;
 
++ (NVSingletonFireBaseManager *)sharedManager;
+-(void)uploadData:(NVPhotoModel *)model;
+-(void)downloadData;
 
-+ (NVSingletonFireBaseManager*)sharedManager;
--(void) uploadData:(NVPhotoModel*)model;
--(void) downloadData;
 @end
