@@ -23,7 +23,12 @@
     [self.scrollView setMinimumZoomScale:1.f];
     [self.scrollView setClipsToBounds:YES];
     
-    [self.imageView setImage:self.model.photo];
+    if(!self.model.photo){
+        [self.imageView setImage:[UIImage imageWithContentsOfFile:self.model.photoPath]];
+    } else{
+        [self.imageView setImage:self.model.photo];
+    }
+    
     [self.descriptionLabel setText:self.model.text];
     [self.labelWithTime setText:self.model.date];
     

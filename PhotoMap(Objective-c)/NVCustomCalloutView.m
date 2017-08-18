@@ -2,6 +2,8 @@
 #import "NVCustomCalloutView.h"
 #import "UIView+NVShadowExtension.h"
 #import "UIImage+NVConvertImageExtension.h"
+#import "MapPhotoPopUp.h"
+#import "NVSingletonFireBaseManager.h"
 
 @interface NVCustomCalloutView ()
 @property(nonatomic,strong) NVPhotoModel *dataModel;
@@ -42,7 +44,14 @@
 }
 
 -(void)contentViewTapAction:(UIGestureRecognizer *)gester{
-    NSLog(@"TAP TAP TAP");
+  
+    MapPhotoPopUp *obj = [[MapPhotoPopUp alloc] initWithFrame: CGRectMake(self.controller.view.frame.size.width/2 - 150,self.controller.view.frame.size.height/2 - 207, 300, 414)
+                                                    withModel: [[[NVSingletonFireBaseManager sharedManager] userData] objectAtIndex:self.dataModel.photoId]
+                                            withController: self.controller
+                                            andWithExistingImage:YES];
+    
+    [self.controller.view addSubview:obj];
+    [self.controller.view bringSubviewToFront:obj];
 }
 
 @end

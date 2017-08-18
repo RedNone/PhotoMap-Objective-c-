@@ -1,10 +1,4 @@
-//
-//  MapPhotoPopUp.m
-//  PhotoMap(Objective-c)
-//
-//  Created by mac-228 on 11.08.17.
-//  Copyright © 2017 mac-228. All rights reserved.
-//
+
 
 #import "MapPhotoPopUp.h"
 #import "FullPhotoViewController.h"
@@ -12,20 +6,36 @@
 #import "NVConst.h"
 #import "UIKit/UIKit.h"
 #import "UIView+NVShadowExtension.h"
+#import "UIImage+NVConvertImageExtension.h"
 
 @interface MapPhotoPopUp()
 @property(strong,nonatomic) NVPhotoModel *model;
 @property(strong,nonatomic) MapUiViewController *controller;
+@property(nonatomic,assign) bool isExistingPhoto;
 @end
 
 @implementation MapPhotoPopUp
 
 
--(instancetype)initWithFrame:(CGRect)frame withModel:(NVPhotoModel*) model andWithController:(MapUiViewController*) controller{
+-(instancetype)initWithFrame:(CGRect)frame withModel:(NVPhotoModel *)model andWithController:(MapUiViewController* )controller{
     self = [super initWithFrame:frame];
     if(self){
         self.controller = controller;
         self.model = model;
+        [self initViewItems];
+    }
+    return self;
+}
+
+-(instancetype)initWithFrame:(CGRect)frame
+                   withModel:(NVPhotoModel *)model
+              withController:(MapUiViewController *)controller
+           andWithExistingImage:(bool)isExistingPhoto{
+    self = [super initWithFrame:frame];
+    if(self){
+        self.controller = controller;
+        self.model = model;
+        self.isExistingPhoto = isExistingPhoto;
         [self initViewItems];
     }
     return self;
@@ -42,9 +52,17 @@
     
     [self.imageView makeShadowWithSize:CGSizeMake(3.0f, 3.0f) andWithShadowOpacity:0.2f];
     
-    [self.imageView setImage:self.model.photo];
+    if(self.isExistingPhoto){
+        [self.imageView setImage:[[UIImage imageWithContentsOfFile:self.model.photoPath] scaledToSize:CGSizeMake(300, 400)]];
+    } else{
+        [self.imageView setImage:[self.model.photo scaledToSize:CGSizeMake(300, 400)]];
+    }
     [self.timeLabel setText:self.model.date];
     [self.typeOfPhotoLabel setText:self.model.type];
+    
+    if(self.model.text){
+        self.descriptionTextField.text = self.model.text;
+    }
     
     UILongPressGestureRecognizer *gester = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(typeOfPhotoLabelAction:)];
     [self.typeOfPhotoLabel setUserInteractionEnabled:YES];
@@ -88,9 +106,15 @@
    }
 
 - (IBAction)doneButtonAction:(UIButton *)sender {
-    self.model.text = self.descriptionTextField.text;
-    [[NVSingletonFireBaseManager sharedManager] uploadData:self.model];
-    [self removeFromSuperview];
+    if(!self.isExistingPhoto){
+        self.model.text = self.descriptionTextField.text;
+        [[NVSingletonFireBaseManager sharedManager] uploadData:self.model];
+        [self removeFromSuperview];
+    } else{
+        self.model.text = self.descriptionTextField.text;
+        [[NVSingletonFireBaseManager sharedManager] updateDataWithModel:self.model];
+        [self removeFromSuperview];
+    }
 }
 
 #pragma mark - AlertController as Context Menu

@@ -79,10 +79,10 @@
 #pragma mark - Gesture Action
 
 -(void)onLongPressMap:(UIGestureRecognizer *)gester{
-    NSLog(@"LongPressMap");
     if(gester.state == UIGestureRecognizerStateBegan){
         CGPoint point = [gester locationInView:self.mapView];
         self.photoLocation = [self.mapView convertPoint:point toCoordinateFromView:self.mapView];
+        NSLog(@"%f,%f",self.photoLocation.latitude,self.photoLocation.longitude);
         [self callAlertController];
     }
 }
@@ -109,8 +109,9 @@
 
 - (IBAction)touchOnNewPhotoButton:(UIButton *)sender {
     if(self.location != nil){
-    self.photoLocation = [self.location coordinate];
-    [self callAlertController];
+        self.photoLocation = [self.location coordinate];
+         NSLog(@"%f,%f",self.photoLocation.latitude,self.photoLocation.longitude);
+        [self callAlertController];
     } else{
         [self callAlertControllerWithTitle:@"Error" andWithMessage:@"Cannot Identify current location"];
     }
@@ -173,12 +174,11 @@
     NVPhotoModel *newModel = [NVPhotoModel new];
     newModel.photoId = 0;
     
-    
     NSDateFormatter* dateFormat = [NSDateFormatter new];
     [dateFormat setDateFormat:@"MMMM dd'th',yyyy - hh:mm a"];
     
     newModel.date = [dateFormat stringFromDate:[NSDate new]];
-    newModel.coordinates = [NSString stringWithFormat:@"%f,%f",self.location.coordinate.latitude,self.location.coordinate.longitude];
+    newModel.coordinates = [NSString stringWithFormat:@"%f,%f",self.photoLocation.latitude,self.photoLocation.longitude];
     newModel.photo = image;
     newModel.type  = TypeOfPhotoDefault;
            
@@ -201,7 +201,7 @@
     bool settingsStatusFriends = [userSettings boolForKey:TypeOfPhotoFriends];
     bool settingsStatusDefault = [userSettings boolForKey:TypeOfPhotoDefault];
         
-    self.arrayWithUserDataForMap = [NSMutableArray arrayWithArray:[[NVSingletonFireBaseManager sharedManager] userData]];
+    self.arrayWithUserDataForMap = [[NSMutableArray alloc] initWithArray:[[NVSingletonFireBaseManager sharedManager] userData] copyItems:YES];
     
     for(int i = 0; i < self.arrayWithUserDataForMap.count; i++){
         NVPhotoModel *model = [self.arrayWithUserDataForMap objectAtIndex:i];
@@ -232,7 +232,7 @@
                                    withOldFormat:@"MMMM dd'th',yyyy - hh:mm a"
                                 andWithNewFormat:@"MM-dd-yyyy"];
     }
-    
+   
     self.arrayWithPins = [NSMutableArray arrayWithCapacity:self.arrayWithUserDataForMap.count];
     
     for(NVPhotoModel *model in self.arrayWithUserDataForMap){
@@ -283,25 +283,20 @@
     if([annotation isKindOfClass:[MKUserLocation class]]){
         return nil;
     }
-    
     static NSString *identifier = @"Annotation";
     
-    NVCustomAnnotationView *pin = (NVCustomAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
-    if(!pin){
-        pin = [[NVCustomAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
-        pin.animatesDrop = YES;
-        pin.canShowCallout = NO;
-        if([annotation.type isEqualToString:TypeOfPhotoNature]){
-            pin.pinColor = MKPinAnnotationColorGreen;
-        }
-        if([annotation.type isEqualToString:TypeOfPhotoFriends]){
-            pin.pinColor = MKPinAnnotationColorRed;
-        }
-        if([annotation.type isEqualToString:TypeOfPhotoDefault]){
-            pin.pinColor = MKPinAnnotationColorPurple;
-        }
-    } else{
-        pin.annotation = annotation;
+    NVCustomAnnotationView *pin = [[NVCustomAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
+    pin.animatesDrop = YES;
+    pin.canShowCallout = NO;
+    
+    if([annotation.type isEqualToString:TypeOfPhotoNature]){
+       pin.pinColor = MKPinAnnotationColorGreen;
+    }
+    if([annotation.type isEqualToString:TypeOfPhotoFriends]){
+       pin.pinColor = MKPinAnnotationColorRed;
+    }
+    if([annotation.type isEqualToString:TypeOfPhotoDefault]){
+       pin.pinColor = MKPinAnnotationColorPurple;
     }
     
     return pin;

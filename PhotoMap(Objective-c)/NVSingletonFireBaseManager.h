@@ -16,5 +16,6 @@
 + (NVSingletonFireBaseManager *)sharedManager;
 -(void)uploadData:(NVPhotoModel *)model;
 -(void)downloadData;
+-(void)updateDataWithModel:(NVPhotoModel *) model;
 
 @end

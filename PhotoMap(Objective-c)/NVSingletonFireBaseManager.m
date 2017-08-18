@@ -27,6 +27,12 @@
 
 #pragma mark - FireBase Data
 
+-(void)updateDataWithModel:(NVPhotoModel *) model{   
+    FIRDatabaseReference *fireBaseInstance = [[FIRDatabase database] referenceWithPath:[NSString stringWithFormat:@"photos/%@",[[[FIRAuth auth] currentUser] uid]]];
+    [[[fireBaseInstance child:[NSString stringWithFormat:@"%ld",(long)model.photoId]] child:@"type"] setValue:model.type];
+    [[[fireBaseInstance child:[NSString stringWithFormat:@"%ld",(long)model.photoId]] child:@"text"] setValue:model.text];
+}
+
 -(void)uploadData:(NVPhotoModel *)model{
     FIRDatabaseReference *fireBaseInstance = [[FIRDatabase database] referenceWithPath:[NSString stringWithFormat:@"photos/%@",[[[FIRAuth auth] currentUser] uid]]];
     FIRDatabaseQuery *lastquery = [fireBaseInstance queryOrderedByKey];
@@ -121,8 +127,6 @@
             
             if (![imageData writeToFile:imagePath atomically:NO]){
                 NSLog(@"Failed to cache image data to disk");
-            } else {
-                NSLog(@"the cachedImagedPath is %@",imagePath); 
             }
             
             newModel.photoPath = imagePath;

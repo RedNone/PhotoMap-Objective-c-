@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "UIKit/UIKit.h"
 
-@interface NVPhotoModel : NSObject
+@interface NVPhotoModel : NSObject <NSCopying>
 
 @property(assign, nonatomic) NSInteger photoId;
 @property(strong, nonatomic) NSString *date;
