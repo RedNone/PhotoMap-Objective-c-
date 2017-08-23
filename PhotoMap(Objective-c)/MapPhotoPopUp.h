@@ -18,7 +18,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *typeOfPhotoLabel;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextField;
 
--(instancetype)initWithFrame:(CGRect)frame withModel:(NVPhotoModel*) model andWithController:(MapUiViewController*) controller;
+- (instancetype)initWithFrame:(CGRect)frame withModel:(NVPhotoModel *) model andWithController:(MapUiViewController *) controller;
+- (instancetype)initWithFrame:(CGRect)frame
+                   withModel:(NVPhotoModel *)model
+              withController:(MapUiViewController *)controller
+           andWithExistingImage:(bool)isExistingPhoto;
+
 - (IBAction)cancelButtonAction:(UIButton *)sender;
 - (IBAction)doneButtonAction:(UIButton *)sender;
 

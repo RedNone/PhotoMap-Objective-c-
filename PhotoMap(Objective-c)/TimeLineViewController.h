@@ -9,6 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
 
-@interface TimeLineViewController : BaseViewController
+@interface TimeLineViewController : BaseViewController <UISearchControllerDelegate,
+                                                        UISearchResultsUpdating,
+                                                        UISearchBarDelegate,
+                                                        UITableViewDelegate,
+                                                        UITableViewDataSource>
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *progressIndicator;
+@property (weak, nonatomic) IBOutlet UIButton *categoryButton;
+@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
+
+- (IBAction)categoryButtonAction:(UIButton *)sender;
 @end

@@ -3,11 +3,20 @@
 #import "MapPhotoPopUp.h"
 #import "NVPhotoModel.h"
 #import "NVConst.h"
+#import "NVSingletonFireBaseManager.h"
+#import "NVMapAnnotation.h"
+#import "UIImage+NVConvertImageExtension.h"
+#import "SettingsViewController.h"
+#import "NVCustomCalloutView.h"
+#import "NVCustomAnnotationView.h"
+#import "NSString+NVConvertStringExtension.h"
 
-@interface MapUiViewController ()
-@property (assign, nonatomic) BOOL mapModeProperty;
-@property (nonatomic,assign) CLLocationCoordinate2D photoLocation;
-
+@interface MapUiViewController () <MKMapViewDelegate>
+@property(assign, nonatomic) BOOL mapModeProperty;
+@property(nonatomic,assign) CLLocationCoordinate2D photoLocation;
+@property(strong,nonatomic) NSMutableArray *arrayWithUserDataForMap;
+@property(strong,nonatomic) NSMutableArray *arrayWithPins;
+@property(nonatomic,strong) NVCustomCalloutView *currentPinView;
 @end
 
 @implementation MapUiViewController
@@ -40,11 +49,16 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    [self.navigationController setNavigationBarHidden:YES animated:animated];}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    
+    if(changeSettingsIndicator){
+        [self prepareUserDataForMap];
+        changeSettingsIndicator = NO;
+    }
+    if([[NVSingletonFireBaseManager sharedManager] isDataComeFlagForMap]){
+        [NVSingletonFireBaseManager sharedManager].isDataComeFlagForMap = NO;
+        [self prepareUserDataForMap];
+    }
 }
 
 -(void)dealloc{
@@ -53,7 +67,7 @@
 
 #pragma mark - Location
 
--(void) locationManager:(CLLocationManager*)manager didUpdateLocations:(nonnull NSArray<CLLocation *> *)locations{
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(nonnull NSArray<CLLocation *> *)locations{
     [self.locationManager requestAlwaysAuthorization];
     [self.locationManager startUpdatingLocation];
     
@@ -69,8 +83,7 @@
 
 #pragma mark - Gesture Action
 
--(void) onLongPressMap:(UIGestureRecognizer*) gester{
-    NSLog(@"LongPressMap");
+-(void)onLongPressMap:(UIGestureRecognizer *)gester{
     if(gester.state == UIGestureRecognizerStateBegan){
         CGPoint point = [gester locationInView:self.mapView];
         self.photoLocation = [self.mapView convertPoint:point toCoordinateFromView:self.mapView];
@@ -100,8 +113,8 @@
 
 - (IBAction)touchOnNewPhotoButton:(UIButton *)sender {
     if(self.location != nil){
-    self.photoLocation = [self.location coordinate];
-    [self callAlertController];
+        self.photoLocation = [self.location coordinate];
+        [self callAlertController];
     } else{
         [self callAlertControllerWithTitle:@"Error" andWithMessage:@"Cannot Identify current location"];
     }
@@ -109,7 +122,7 @@
 
 #pragma mark - UIAlertController Action
 
--(void) callAlertController {
+-(void)callAlertController {
     UIAlertController *alert =
     [UIAlertController alertControllerWithTitle:nil
                                         message:nil
@@ -160,7 +173,7 @@
 
 #pragma mark - Prepare data model
 
--(NVPhotoModel*) preparePhotoModelWithUrl:(UIImage*)image {
+-(NVPhotoModel *)preparePhotoModelWithUrl:(UIImage *)image {
     NVPhotoModel *newModel = [NVPhotoModel new];
     newModel.photoId = 0;
     
@@ -168,17 +181,131 @@
     [dateFormat setDateFormat:@"MMMM dd'th',yyyy - hh:mm a"];
     
     newModel.date = [dateFormat stringFromDate:[NSDate new]];
-    newModel.coordinates = [NSString stringWithFormat:@"%f,%f",self.location.coordinate.latitude,self.location.coordinate.longitude];
+    newModel.coordinates = [NSString stringWithFormat:@"%f,%f",self.photoLocation.latitude,self.photoLocation.longitude];
     newModel.photo = image;
     newModel.type  = TypeOfPhotoDefault;
            
     return newModel;
 }
 
-#pragma mark - User Data
+-(void)prepareUserDataForMap {
+    if(![[NVSingletonFireBaseManager sharedManager] userData]){
+        return;
+    }
+    
+    if(self.arrayWithPins){
+        [self.mapView removeAnnotations:self.arrayWithPins];
+    }
+    
+    
+    NSUserDefaults *userSettings = [NSUserDefaults standardUserDefaults];
+    
+    bool settingsStatusNature = [userSettings boolForKey:TypeOfPhotoNature];
+    bool settingsStatusFriends = [userSettings boolForKey:TypeOfPhotoFriends];
+    bool settingsStatusDefault = [userSettings boolForKey:TypeOfPhotoDefault];
+        
+    self.arrayWithUserDataForMap = [[NSMutableArray alloc] initWithArray:[[NVSingletonFireBaseManager sharedManager] userData] copyItems:YES];
+    
+    for(int i = 0; i < self.arrayWithUserDataForMap.count; i++){
+        NVPhotoModel *model = [self.arrayWithUserDataForMap objectAtIndex:i];
+        
+        if([model.type isEqualToString:TypeOfPhotoDefault]){
+            if(!settingsStatusDefault){
+                [self.arrayWithUserDataForMap removeObjectAtIndex:i];
+                i--;
+            }
+        }
+        if([model.type isEqualToString:TypeOfPhotoNature]){
+            if(!settingsStatusNature){
+                [self.arrayWithUserDataForMap removeObjectAtIndex:i];
+                i--;
+            }
+        }
+        if([model.type isEqualToString:TypeOfPhotoFriends]){
+            if(!settingsStatusFriends){
+                [self.arrayWithUserDataForMap removeObjectAtIndex:i];
+                i--;
+            }
+        }
+    }
+    
+    
+    for(NVPhotoModel *model in self.arrayWithUserDataForMap){
+        model.date = [model.date convertTimeFormatWithOldFormat:@"MMMM dd'th',yyyy - hh:mm a"
+                                               andWithNewFormat:@"MM-dd-yyyy"];
+    }
+   
+    self.arrayWithPins = [NSMutableArray arrayWithCapacity:self.arrayWithUserDataForMap.count];
+    
+    for(NVPhotoModel *model in self.arrayWithUserDataForMap){
+        NVMapAnnotation *annotation = [NVMapAnnotation new];
+        annotation.title = model.text;
+        annotation.subtitle = model.date;
+        annotation.photoId = model.photoId;
+        annotation.photoPath = model.photoPath;
+        annotation.coordinate = [self getLocationFromString:model.coordinates];
+        annotation.type = model.type;
+        
+        [self.arrayWithPins addObject:annotation];
+        [self.mapView addAnnotation:annotation];
+    }
+    
+}
 
--(void) userDataCome:(NSNotification *) notification{
-    NSLog(@"DATA COME!!");
+-(CLLocationCoordinate2D)getLocationFromString:(NSString *)locationString{
+    NSArray *location = [locationString componentsSeparatedByString:@","];
+    
+    return CLLocationCoordinate2DMake([[location objectAtIndex:0] doubleValue], [[location objectAtIndex:1] doubleValue]);
+}
+
+#pragma mark - User Data Notification
+
+-(void)userDataCome:(NSNotification *)notification{
+    if(notification.name == FirebaseManagerDataComeNotification){
+         [self prepareUserDataForMap];
+         [NVSingletonFireBaseManager sharedManager].isDataComeFlagForMap = NO;
+    }
+}
+
+#pragma mark - MKMapViewDelegate
+
+-(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(NVMapAnnotation*)annotation{
+    if([annotation isKindOfClass:[MKUserLocation class]]){
+        return nil;
+    }
+    static NSString *identifier = @"Annotation";
+    
+    NVCustomAnnotationView *pin = [[NVCustomAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
+    pin.animatesDrop = YES;
+    pin.canShowCallout = NO;
+    
+    if([annotation.type isEqualToString:TypeOfPhotoNature]){
+       pin.pinColor = MKPinAnnotationColorGreen;
+    }
+    if([annotation.type isEqualToString:TypeOfPhotoFriends]){
+       pin.pinColor = MKPinAnnotationColorRed;
+    }
+    if([annotation.type isEqualToString:TypeOfPhotoDefault]){
+       pin.pinColor = MKPinAnnotationColorPurple;
+    }
+    
+    return pin;
+}
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view{
+    if(![view.annotation isKindOfClass:[MKUserLocation class]]) {
+        
+        NVMapAnnotation *annotation = view.annotation;
+        NVCustomCalloutView *customView = [[NVCustomCalloutView alloc] initWithFrame: CGRectMake(view.superview.frame.origin.x-104.f, view.superview.frame.origin.y-70.f, 208.0f, 69.0f )
+                                                                           withModel: [self.arrayWithUserDataForMap objectAtIndex:annotation.photoId]
+                                                                   andWithController: self
+                                           ];
+        self.currentPinView = customView;
+        [view addSubview:customView];
+    }
+    
+}
+- (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view{
+    [self.currentPinView removeFromSuperview];    
 }
 
 @end

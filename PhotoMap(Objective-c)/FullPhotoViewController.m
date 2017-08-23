@@ -7,6 +7,7 @@
 //
 
 #import "FullPhotoViewController.h"
+#import "UIImage+NVConvertImageExtension.h"
 
 @interface FullPhotoViewController ()
 
@@ -22,8 +23,9 @@
     [self.scrollView setMaximumZoomScale:5.f];
     [self.scrollView setMinimumZoomScale:1.f];
     [self.scrollView setClipsToBounds:YES];
-    
+   
     [self.imageView setImage:self.model.photo];
+        
     [self.descriptionLabel setText:self.model.text];
     [self.labelWithTime setText:self.model.date];
     
@@ -54,23 +56,33 @@
 }
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark - Actions
--(void) tapToImageView:(UIGestureRecognizer*) gester{
+- (void)tapToImageView:(UIGestureRecognizer *)gester{
+  
     if(self.navigationController.navigationBar.isHidden){
         [self.navigationController.navigationBar setHidden:NO];
-        [self.footerView setHidden:NO];      
+        [UIView animateWithDuration:0.3f animations:^{
+            self.navigationController.navigationBar.alpha = 1;
+        }];
+        [self.footerView setHidden:NO];
+        [UIView animateWithDuration:0.3f animations:^{
+            self.footerView.alpha = 1;
+        }];
     } else{
-        [self.navigationController.navigationBar setHidden:YES];
-        [self.footerView setHidden:YES];
+        [UIView animateWithDuration:0.3f animations:^{
+            self.navigationController.navigationBar.alpha = 0;
+        } completion:^(BOOL finished) {
+            [self.navigationController.navigationBar setHidden:YES];
+        }];
+        [UIView animateWithDuration:0.3f animations:^{
+            self.footerView.alpha = 0;
+        } completion:^(BOOL finished) {
+            [self.footerView setHidden:YES];
+        }];
     }
 }
 
--(void) doubleTapToImageView:(UIGestureRecognizer*) gester{
+-(void)doubleTapToImageView:(UIGestureRecognizer *)gester{
     if(self.scrollView.zoomScale > self.scrollView.minimumZoomScale)
         [self.scrollView setZoomScale:self.scrollView.minimumZoomScale animated:YES];
     else
@@ -79,7 +91,7 @@
 
 #pragma mark - ScrollView Delegate
 
-- (nullable UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{
     return self.imageView;
 }
 

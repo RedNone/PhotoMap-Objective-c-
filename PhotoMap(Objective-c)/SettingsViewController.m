@@ -12,6 +12,8 @@
 #import "MapUiViewController.h"
 #import "NVConst.h"
 
+bool changeSettingsIndicator = NO;
+bool changeSettingsIndicatorForTimeLine = NO;
 @interface SettingsViewController ()
 @property(strong,nonatomic) NSArray *arrayOfSettingsData;
 @property(strong,nonatomic) NSUserDefaults *userSettings;
@@ -27,7 +29,6 @@
                                                                                               forKey:NSForegroundColorAttributeName];
     self.userSettings = [NSUserDefaults standardUserDefaults];
     
-    [self.userSettings registerDefaults:@{ TypeOfPhotoNature : @YES, TypeOfPhotoDefault : @YES, TypeOfPhotoFriends : @YES }];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -41,7 +42,7 @@
 
 #pragma mark - Settings Data
 
--(NSArray*) putSettingsDataToArray {
+-(NSArray*)putSettingsDataToArray {
     NVSettingsModel *modelNature = [NVSettingsModel new];
     NVSettingsModel *modelFriends  = [NVSettingsModel new];
     NVSettingsModel *modelDefault  = [NVSettingsModel new];
@@ -131,7 +132,9 @@
     } else{
         [self.userSettings setBool:YES forKey:model.nameOfSetting];
     }
-   
+    
+    changeSettingsIndicator = YES;
+    changeSettingsIndicatorForTimeLine = YES;
     [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
