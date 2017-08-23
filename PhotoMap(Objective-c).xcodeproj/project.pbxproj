@@ -33,7 +33,7 @@
 		3584E9AB1F3B020E0027228D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3584E9A91F3B020E0027228D /* LaunchScreen.storyboard */; };
 		3584E9B41F3B063A0027228D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3584E9B31F3B063A0027228D /* LoginViewController.m */; };
 		35C2E2DD1F3DDCB20046A143 /* MapPhotoPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35C2E2DC1F3DDCB20046A143 /* MapPhotoPopup.xib */; };
-		35C2E2E11F3DE0E00046A143 /* MapPhotoPopUp.m in Sources */ = {isa = PBXBuildFile; fileRef = 35C2E2E01F3DE0E00046A143 /* MapPhotoPopUp.m */; };
+		35C2E2E11F3DE0E00046A143 /* MapPhotoPopUp.m in Sources */ = {isa = PBXBuildFile; fileRef = 35C2E2E01F3DE0E00046A143 /* MapPhotoPopUp.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		35C633011F4491A0009981F8 /* NVConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 35C633001F4491A0009981F8 /* NVConst.m */; };
 		35E5C7311F46DBE000C4167D /* CustomCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35E5C7301F46DBE000C4167D /* CustomCalloutView.xib */; };
 		35E5C7341F46DCB500C4167D /* NVCustomCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E5C7331F46DCB500C4167D /* NVCustomCalloutView.m */; };

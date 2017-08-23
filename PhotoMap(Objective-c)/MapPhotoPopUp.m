@@ -9,8 +9,8 @@
 #import "UIImage+NVConvertImageExtension.h"
 
 @interface MapPhotoPopUp()
-@property(strong,nonatomic) NVPhotoModel *model;
-@property(strong,nonatomic) MapUiViewController *controller;
+@property(retain,nonatomic) NVPhotoModel *model;
+@property(retain,nonatomic) MapUiViewController *controller;
 @property(nonatomic,assign) bool isExistingPhoto;
 @end
 
@@ -41,6 +41,7 @@
     return self;
 }
 
+
 - (void)initViewItems {
     [[NSBundle mainBundle] loadNibNamed:@"MapPhotoPopup" owner:self options:nil];
     [self addSubview:self.contentView];
@@ -66,6 +67,7 @@
     [self.imageView addGestureRecognizer:imageGester];
 }
 
+
 - (void)makeShadowForView:(UIView *)someView {
     
     UIBezierPath *shadowPath = [UIBezierPath bezierPathWithRect:someView.bounds];
@@ -74,6 +76,18 @@
     someView.layer.shadowOffset = CGSizeMake(3.0f, 3.0f);
     someView.layer.shadowOpacity = 0.2f;
     someView.layer.shadowPath = shadowPath.CGPath;
+
+}
+
+- (void)dealloc{
+    [_model release];
+    [_controller release];
+    [_contentView release];
+    [_imageView release];
+    [_timeLabel release];
+    [_typeOfPhotoLabel release];
+    [_descriptionTextField release];
+    [super dealloc];
 
 }
 
@@ -129,7 +143,7 @@
                              self.model.type = TypeOfPhotoFriends;
                              
                              [alert dismissViewControllerAnimated:YES completion:nil];
-                             
+                             [alert release];
                          }]];
     [alert addAction: [UIAlertAction
                          actionWithTitle:TypeOfPhotoDefault
@@ -139,7 +153,7 @@
                              [self.typeOfPhotoLabel setText:TypeOfPhotoDefault];
                              self.model.type = TypeOfPhotoDefault;
                              [alert dismissViewControllerAnimated:YES completion:nil];
-                             
+                             [alert release];
                          }]];
     [alert addAction: [UIAlertAction
                          actionWithTitle:TypeOfPhotoNature
@@ -149,11 +163,13 @@
                              [self.typeOfPhotoLabel setText:TypeOfPhotoNature];
                              self.model.type = TypeOfPhotoNature;
                              [alert dismissViewControllerAnimated:YES completion:nil];
-                             
+                             [alert release];
                          }]];
     [alert addAction:[UIAlertAction actionWithTitle:@"Cancel"
                                               style:UIAlertActionStyleCancel
-                                            handler:nil]];
+                                            handler:^(UIAlertAction * _Nonnull action) {
+                                                [alert release];
+                                            }]];
     
     [self.controller presentViewController:alert animated:YES completion:nil];
     
