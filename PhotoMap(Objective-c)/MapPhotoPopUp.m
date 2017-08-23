@@ -46,17 +46,13 @@
     [self addSubview:self.contentView];
     self.contentView.frame = self.bounds;
     
-    
     [self.contentView makeShadowWithSize:CGSizeMake(3.0f, 3.0f) andWithShadowOpacity:0.2f];
     self.contentView.layer.cornerRadius = 5;
     
     [self.imageView makeShadowWithSize:CGSizeMake(3.0f, 3.0f) andWithShadowOpacity:0.2f];
+       
+    [self.imageView setImage:[self.model.photo scaledToSize:CGSizeMake(300, 400)]];
     
-    if(self.isExistingPhoto){
-        [self.imageView setImage:[[UIImage imageWithContentsOfFile:self.model.photoPath] scaledToSize:CGSizeMake(300, 400)]];
-    } else{
-        [self.imageView setImage:[self.model.photo scaledToSize:CGSizeMake(300, 400)]];
-    }
     self.timeLabel.text = self.model.date;
     self.typeOfPhotoLabel.text = self.model.type;    
     self.descriptionTextField.text = self.model.text;

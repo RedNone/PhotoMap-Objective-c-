@@ -29,9 +29,8 @@
     
     self.contentView.layer.cornerRadius = 10;
     [self.photoImageView makeShadowWithSize:CGSizeMake(3.0f, 3.0f) andWithShadowOpacity:0.3f];
-    
-    UIImage *photoImage = [UIImage imageWithContentsOfFile:self.dataModel.photoPath];
-    self.photoImageView.image = [photoImage scaledToSize:CGSizeMake(50, 50)];
+        
+    self.photoImageView.image = [self.dataModel.photo scaledToSize:CGSizeMake(50, 50)];
     
     self.titleLabel.text = self.dataModel.text;
     self.dateLabel.text = self.dataModel.date;

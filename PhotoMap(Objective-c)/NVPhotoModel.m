@@ -10,6 +10,8 @@
 
 @implementation NVPhotoModel
 
+@synthesize photo = _photo;
+
 - (id)copyWithZone:(NSZone *)zone{
     NVPhotoModel *model = [NVPhotoModel new];
     model.photoId = self.photoId;
@@ -20,6 +22,14 @@
     model.photoPath = self.photoPath;
     model.coordinates = self.coordinates;
     return model;
+}
+
+- (UIImage*) photo {
+    if(!_photo){
+        UIImage *image = [UIImage imageWithContentsOfFile:_photoPath];
+        return image;
+    }
+    return _photo;
 }
 
 @end

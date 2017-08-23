@@ -11,6 +11,6 @@
 @interface BaseViewController : UIViewController
 
 
--(void)callAlertControllerWithTitle:(NSString *)title andWithMessage:(NSString *)message;
+- (void)callAlertControllerWithTitle:(NSString *)title andWithMessage:(NSString *)message;
 
 @end

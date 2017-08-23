@@ -161,7 +161,7 @@
   
     cell.descriptionOfPhoto.text = model.model.text;
     cell.typeOfPhotoLabel.text = model.model.type;
-    cell.imageView.image = [[UIImage imageWithContentsOfFile:model.model.photoPath] scaledToSize:CGSizeMake(62, 69)];
+    cell.imageView.image = [model.model.photo scaledToSize:CGSizeMake(62, 69)];
     cell.dateLabel.text = model.model.date;
     
     return cell;

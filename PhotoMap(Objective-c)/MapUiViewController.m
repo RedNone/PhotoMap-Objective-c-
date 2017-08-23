@@ -87,7 +87,6 @@
     if(gester.state == UIGestureRecognizerStateBegan){
         CGPoint point = [gester locationInView:self.mapView];
         self.photoLocation = [self.mapView convertPoint:point toCoordinateFromView:self.mapView];
-        NSLog(@"%f,%f",self.photoLocation.latitude,self.photoLocation.longitude);
         [self callAlertController];
     }
 }
@@ -115,7 +114,6 @@
 - (IBAction)touchOnNewPhotoButton:(UIButton *)sender {
     if(self.location != nil){
         self.photoLocation = [self.location coordinate];
-         NSLog(@"%f,%f",self.photoLocation.latitude,self.photoLocation.longitude);
         [self callAlertController];
     } else{
         [self callAlertControllerWithTitle:@"Error" andWithMessage:@"Cannot Identify current location"];
