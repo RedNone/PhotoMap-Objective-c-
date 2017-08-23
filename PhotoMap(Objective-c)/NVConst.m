@@ -7,6 +7,7 @@
 //
 
 #import "NVConst.h"
+
 NSString *const TypeOfPhotoFriends = @"Friends";
 NSString *const TypeOfPhotoDefault = @"Default";
 NSString *const TypeOfPhotoNature = @"Nature";

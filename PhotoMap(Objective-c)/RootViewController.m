@@ -13,7 +13,7 @@
 @implementation RootViewController
 
 
--(void)viewDidAppear:(BOOL)animated {
+- (void)viewDidAppear:(BOOL)animated {
     if([[FIRAuth auth] currentUser] == nil){
         [self performSegueWithIdentifier:@"segueLoginScreen" sender:self];
     } else {

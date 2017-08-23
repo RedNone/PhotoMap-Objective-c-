@@ -7,6 +7,7 @@
 //
 
 #import "FullPhotoViewController.h"
+#import "UIImage+NVConvertImageExtension.h"
 
 @interface FullPhotoViewController ()
 
@@ -24,7 +25,7 @@
     [self.scrollView setClipsToBounds:YES];
     
     if(!self.model.photo){
-        [self.imageView setImage:[UIImage imageWithContentsOfFile:self.model.photoPath]];
+        [self.imageView setImage:[UIImage imageWithContentsOfFile:self.model.photoPath] ];
     } else{
         [self.imageView setImage:self.model.photo];
     }
@@ -60,13 +61,28 @@
 
 
 #pragma mark - Actions
--(void)tapToImageView:(UIGestureRecognizer *)gester{
+- (void)tapToImageView:(UIGestureRecognizer *)gester{
+  
     if(self.navigationController.navigationBar.isHidden){
         [self.navigationController.navigationBar setHidden:NO];
-        [self.footerView setHidden:NO];      
+        [UIView animateWithDuration:0.3f animations:^{
+            self.navigationController.navigationBar.alpha = 1;
+        }];
+        [self.footerView setHidden:NO];
+        [UIView animateWithDuration:0.3f animations:^{
+            self.footerView.alpha = 1;
+        }];
     } else{
-        [self.navigationController.navigationBar setHidden:YES];
-        [self.footerView setHidden:YES];
+        [UIView animateWithDuration:0.3f animations:^{
+            self.navigationController.navigationBar.alpha = 0;
+        } completion:^(BOOL finished) {
+            [self.navigationController.navigationBar setHidden:YES];
+        }];
+        [UIView animateWithDuration:0.3f animations:^{
+            self.footerView.alpha = 0;
+        } completion:^(BOOL finished) {
+            [self.footerView setHidden:YES];
+        }];
     }
 }
 

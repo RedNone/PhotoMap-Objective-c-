@@ -13,6 +13,7 @@
 #import "NVConst.h"
 
 bool changeSettingsIndicator = NO;
+bool changeSettingsIndicatorForTimeLine = NO;
 @interface SettingsViewController ()
 @property(strong,nonatomic) NSArray *arrayOfSettingsData;
 @property(strong,nonatomic) NSUserDefaults *userSettings;
@@ -133,6 +134,7 @@ bool changeSettingsIndicator = NO;
     }
     
     changeSettingsIndicator = YES;
+    changeSettingsIndicatorForTimeLine = YES;
     [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 

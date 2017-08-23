@@ -9,6 +9,7 @@
 #import "SettingsViewController.h"
 #import "NVCustomCalloutView.h"
 #import "NVCustomAnnotationView.h"
+#import "NSString+NVConvertStringExtension.h"
 
 @interface MapUiViewController () <MKMapViewDelegate>
 @property(assign, nonatomic) BOOL mapModeProperty;
@@ -53,6 +54,10 @@
     if(changeSettingsIndicator){
         [self prepareUserDataForMap];
         changeSettingsIndicator = NO;
+    }
+    if([[NVSingletonFireBaseManager sharedManager] isDataComeFlagForMap]){
+        [NVSingletonFireBaseManager sharedManager].isDataComeFlagForMap = NO;
+        [self prepareUserDataForMap];
     }
 }
 
@@ -228,9 +233,8 @@
     
     
     for(NVPhotoModel *model in self.arrayWithUserDataForMap){
-        model.date = [self convertTimeFormatWith:model.date
-                                   withOldFormat:@"MMMM dd'th',yyyy - hh:mm a"
-                                andWithNewFormat:@"MM-dd-yyyy"];
+        model.date = [model.date convertTimeFormatWithOldFormat:@"MMMM dd'th',yyyy - hh:mm a"
+                                               andWithNewFormat:@"MM-dd-yyyy"];
     }
    
     self.arrayWithPins = [NSMutableArray arrayWithCapacity:self.arrayWithUserDataForMap.count];
@@ -256,24 +260,12 @@
     return CLLocationCoordinate2DMake([[location objectAtIndex:0] doubleValue], [[location objectAtIndex:1] doubleValue]);
 }
 
--(NSString *)convertTimeFormatWith:(NSString*)timeString withOldFormat:(NSString*)oldFormat andWithNewFormat:(NSString*)newFormat{
-    
-    NSDateFormatter *dateFormat = [NSDateFormatter new];
-    [dateFormat setDateFormat:oldFormat];
-    
-    NSDate *date = [dateFormat dateFromString:timeString];
-    
-    NSDateFormatter *newDateFormat = [NSDateFormatter new];
-    [newDateFormat setDateFormat:newFormat];
-    
-    return [newDateFormat stringFromDate:date] ;
-}
-
 #pragma mark - User Data Notification
 
 -(void)userDataCome:(NSNotification *)notification{
     if(notification.name == FirebaseManagerDataComeNotification){
          [self prepareUserDataForMap];
+         [NVSingletonFireBaseManager sharedManager].isDataComeFlagForMap = NO;
     }
 }
 

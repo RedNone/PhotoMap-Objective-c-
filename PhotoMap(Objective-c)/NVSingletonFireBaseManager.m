@@ -123,7 +123,7 @@
             NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
             NSString *documentsDirectory = [paths objectAtIndex:0];
             
-            NSString *imagePath =[documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@%d.png",@"cached",newModel.photoId]];
+            NSString *imagePath =[documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@%ld.png",@"cached",(long)newModel.photoId]];
             
             if (![imageData writeToFile:imagePath atomically:NO]){
                 NSLog(@"Failed to cache image data to disk");
@@ -134,6 +134,8 @@
         }
         
         dispatch_async(dispatch_get_main_queue(), ^{
+            self.isDataComeFlagForMap = YES;
+            self.isDataComeFlagForTimeLine = YES;
             [[NSNotificationCenter defaultCenter] postNotificationName:FirebaseManagerDataComeNotification object:nil];
       });
     });

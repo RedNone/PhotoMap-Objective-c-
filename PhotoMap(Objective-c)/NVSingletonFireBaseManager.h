@@ -12,10 +12,12 @@
 @interface NVSingletonFireBaseManager : NSObject
 
 @property(strong, nonatomic) NSMutableArray *userData;
+@property(nonatomic, assign) bool isDataComeFlagForMap;
+@property(nonatomic, assign) bool isDataComeFlagForTimeLine;
 
 + (NVSingletonFireBaseManager *)sharedManager;
--(void)uploadData:(NVPhotoModel *)model;
--(void)downloadData;
--(void)updateDataWithModel:(NVPhotoModel *) model;
+- (void)uploadData:(NVPhotoModel *)model;
+- (void)downloadData;
+- (void)updateDataWithModel:(NVPhotoModel *) model;
 
 @end

@@ -17,7 +17,7 @@
 @implementation MapPhotoPopUp
 
 
--(instancetype)initWithFrame:(CGRect)frame withModel:(NVPhotoModel *)model andWithController:(MapUiViewController* )controller{
+- (instancetype)initWithFrame:(CGRect)frame withModel:(NVPhotoModel *)model andWithController:(MapUiViewController* )controller{
     self = [super initWithFrame:frame];
     if(self){
         self.controller = controller;
@@ -27,7 +27,7 @@
     return self;
 }
 
--(instancetype)initWithFrame:(CGRect)frame
+- (instancetype)initWithFrame:(CGRect)frame
                    withModel:(NVPhotoModel *)model
               withController:(MapUiViewController *)controller
            andWithExistingImage:(bool)isExistingPhoto{
@@ -41,7 +41,7 @@
     return self;
 }
 
--(void)initViewItems {
+- (void)initViewItems {
     [[NSBundle mainBundle] loadNibNamed:@"MapPhotoPopup" owner:self options:nil];
     [self addSubview:self.contentView];
     self.contentView.frame = self.bounds;
@@ -57,12 +57,9 @@
     } else{
         [self.imageView setImage:[self.model.photo scaledToSize:CGSizeMake(300, 400)]];
     }
-    [self.timeLabel setText:self.model.date];
-    [self.typeOfPhotoLabel setText:self.model.type];
-    
-    if(self.model.text){
-        self.descriptionTextField.text = self.model.text;
-    }
+    self.timeLabel.text = self.model.date;
+    self.typeOfPhotoLabel.text = self.model.type;    
+    self.descriptionTextField.text = self.model.text;
     
     UILongPressGestureRecognizer *gester = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(typeOfPhotoLabelAction:)];
     [self.typeOfPhotoLabel setUserInteractionEnabled:YES];
@@ -73,7 +70,7 @@
     [self.imageView addGestureRecognizer:imageGester];
 }
 
--(void)makeShadowForView:(UIView *)someView {
+- (void)makeShadowForView:(UIView *)someView {
     
     UIBezierPath *shadowPath = [UIBezierPath bezierPathWithRect:someView.bounds];
     someView.layer.masksToBounds = NO;
@@ -86,7 +83,7 @@
 
 #pragma mark - Actions
 
--(void)imageViewAction:(UIGestureRecognizer *)gester{
+- (void)imageViewAction:(UIGestureRecognizer *)gester{
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     FullPhotoViewController *myController = [storyBoard instantiateViewControllerWithIdentifier:@"FullPhotoScreen"];
     self.model.text = self.descriptionTextField.text;    
@@ -106,20 +103,21 @@
    }
 
 - (IBAction)doneButtonAction:(UIButton *)sender {
+    
+    self.model.text = self.descriptionTextField.text;
+    
     if(!self.isExistingPhoto){
-        self.model.text = self.descriptionTextField.text;
         [[NVSingletonFireBaseManager sharedManager] uploadData:self.model];
-        [self removeFromSuperview];
+     
     } else{
-        self.model.text = self.descriptionTextField.text;
         [[NVSingletonFireBaseManager sharedManager] updateDataWithModel:self.model];
-        [self removeFromSuperview];
     }
+    [self removeFromSuperview];
 }
 
 #pragma mark - AlertController as Context Menu
 
--(void)callAlertControllerForLabel{
+- (void)callAlertControllerForLabel{
     
     UIAlertController* alert=   [UIAlertController
                                  alertControllerWithTitle:@"Select type of image"

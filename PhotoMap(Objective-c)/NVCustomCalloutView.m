@@ -12,7 +12,7 @@
 
 @implementation NVCustomCalloutView
 
--(instancetype)initWithFrame:(CGRect)frame withModel:(NVPhotoModel *)model andWithController:(MapUiViewController *)controller{
+- (instancetype)initWithFrame:(CGRect)frame withModel:(NVPhotoModel *)model andWithController:(MapUiViewController *)controller{
     self = [super initWithFrame:frame];
     if(self){
         self.controller = controller;
@@ -22,7 +22,7 @@
     return self;
 }
 
--(void)initViewItems {
+- (void)initViewItems {
     [[NSBundle mainBundle] loadNibNamed:@"CustomCalloutView" owner:self options:nil];
     [self addSubview:self.contentView];
     self.contentView.frame = self.bounds;
@@ -43,7 +43,7 @@
   
 }
 
--(void)contentViewTapAction:(UIGestureRecognizer *)gester{
+- (void)contentViewTapAction:(UIGestureRecognizer *)gester{
   
     MapPhotoPopUp *obj = [[MapPhotoPopUp alloc] initWithFrame: CGRectMake(self.controller.view.frame.size.width/2 - 150,self.controller.view.frame.size.height/2 - 207, 300, 414)
                                                     withModel: [[[NVSingletonFireBaseManager sharedManager] userData] objectAtIndex:self.dataModel.photoId]

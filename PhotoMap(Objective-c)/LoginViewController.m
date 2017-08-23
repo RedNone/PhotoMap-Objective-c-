@@ -11,12 +11,6 @@
 
 @implementation LoginViewController
 
-#pragma mark - ViewControllerLifeCycle
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-}
-
 #pragma mark - Button Action
 
 - (IBAction)signInAction:(UIButton *)sender {
@@ -53,7 +47,7 @@
 
 #pragma mark - EditTextsValidation
 
--(bool)validateEditText {
+- (bool)validateEditText {
     
     NSString* email = self.emailTextField.text;
     NSString* password = self.passwordTextField.text;

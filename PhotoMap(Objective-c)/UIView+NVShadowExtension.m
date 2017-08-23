@@ -10,7 +10,7 @@
 
 @implementation UIView (NVShadowExtension)
 
--(void)makeShadowWithSize:(CGSize)size andWithShadowOpacity:(CGFloat)opacity{
+- (void)makeShadowWithSize:(CGSize)size andWithShadowOpacity:(CGFloat)opacity{
     
     UIBezierPath *shadowPath = [UIBezierPath bezierPathWithRect:self.bounds];
     self.layer.masksToBounds = NO;

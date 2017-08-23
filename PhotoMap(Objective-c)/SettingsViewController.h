@@ -2,6 +2,7 @@
 #import "BaseViewController.h"
 
 extern bool changeSettingsIndicator;
+extern bool changeSettingsIndicatorForTimeLine;
 @interface SettingsViewController : BaseViewController
 
 

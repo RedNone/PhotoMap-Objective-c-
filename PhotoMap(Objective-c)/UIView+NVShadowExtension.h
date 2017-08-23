@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface UIView (NVShadowExtension)
--(void)makeShadowWithSize:(CGSize)size andWithShadowOpacity:(CGFloat)opacity;
+
+- (void)makeShadowWithSize:(CGSize)size andWithShadowOpacity:(CGFloat)opacity;
+
 @end
